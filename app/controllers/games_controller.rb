@@ -1,3 +1,6 @@
+require 'json'
+require 'open-uri'
+
 class GamesController < ApplicationController
   def new
     arr = Array('a'..'z')
@@ -12,24 +15,27 @@ class GamesController < ApplicationController
     input.each do |letter|
       if letters.include? letter
         @score = input.length
+      else
+        @score = 0
       end
     end
 
+    # response = open("https://wagon-dictionary.herokuapp.com/#{input}")
+    # json = JSON.parse(response)
+    # json.exist
 
     #count method for array
 
-    # if input.include?
-    #   @score = 100
-    # elsif input.length > 5
-    #   @score = 50
-    # else
-    #   @score = 10
-    # end
   end
+
+  # def checkDictionary
+  #   url = "https://wagon-dictionary.herokuapp.com/#{}"
+  # end
 end
 
 
-"https://wagon-dictionary.herokuapp.com/:word"
+
+
 
 
 # The word can't be built out of the original grid
